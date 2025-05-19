@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="icon" href="src/img/flowers.png" type="image/x-icon">
+    <title>Mi Amor</title>
+</head>
+<body>
+
+  <div class="greetings hidden">
+    <a href="flower.html">Eu te amo</a>
+  </div>
+
+  <div class="message">
+    <span id="typed"></span>
+  </div>
+
+  <script>
+    const msgs = [
+      "Essa mensagem é para Meu Amorzito", 
+      "Maria Júlia Ribeito Prieto Piedade", 
+      "Minha namorada linda e maravilhosa que amo muito",
+      "é dedicada ao meu amor, a pessoa que amo com todo o meu coração💞.", 
+      "Uma mulher tão incrível, sensacional, maravilhosa, divertida, inteligente, fofa, engraçada e perfeita",
+      "que seria necessário uma eternidade para descrever o quanto ela é surreal.",
+      "Meu amor por você é tão infinito quanto o universo, tão imenso quanto todos os grãos de areia na Terra",
+      "Te amo muitoooooooooooooooooooooooo mesmo ;)",
+      "Agora clica no eu te amo 👆🏻"
+    ];
+    const el = document.getElementById("typed");
+    const link = document.querySelector(".greetings");
+    let idxMsg = 0, idxChar = 0;
+
+    function type() {
+      const msg = msgs[idxMsg];
+      if (idxChar <= msg.length) {
+        el.textContent = msg.slice(0, idxChar++);
+        setTimeout(type, 70);
+      } else {
+        if (idxMsg === msgs.length - 1) {
+          setTimeout(() => link.classList.remove("hidden"), 800);
+        } else {
+          setTimeout(() => {
+            idxChar = 0;
+            idxMsg++;
+            el.textContent = "";
+            type();
+          }, 1500);
+        }
+      }
+    }
+
+    window.addEventListener("load", type);
+  </script>
+        
+    </div>
+</body>
+</html>
